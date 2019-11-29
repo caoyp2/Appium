@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    AppiumDriver appiumDriver;
+    public AppiumDriver appiumDriver;
 
     BasePage(){
         this.appiumDriver = APPDriver.appiumDriver;

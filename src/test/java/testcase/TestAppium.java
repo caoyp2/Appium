@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import driver.APPDriver;
+import page.APPClient;
+import page.LoginPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -77,27 +79,8 @@ public class TestAppium {
 
     @Test
     public void testDriver() throws InterruptedException {
-        AndroidDriver driver = (AndroidDriver) APPDriver.getDriver();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-//        WebElement username = driver.findElement("xpath","//*[@text='用户名']");
-        WebElement webElement = null;
-        WebDriverWait driverWait =
-                new WebDriverWait(driver,10,2);
-        try {
-            webElement = driverWait.until(new ExpectedCondition<WebElement>() {
-                @Override
-                public WebElement apply(WebDriver driver) {
-                    System.out.println("xxxxxxxxxxxxx");
-                    return driver.findElement(By.xpath("//*[@text='用户名']"));
-                }
-            });
-
-        } catch (Exception e) {
-            System.out.println("未找到瓷元素");
-        }
-        if(webElement != null) {
-            webElement.sendKeys("cyp");
-        }
-        driver.quit();
+        LoginPage loginPage = APPClient.startApp();
+        loginPage.appiumDriver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        loginPage.loginPassword("cyp","c123456");
     }
 }
