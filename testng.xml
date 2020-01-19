@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Suite1">
-    <test name="login">
+<suite name="益电宝APP UI自动化测试">
+    <test name="登录">
         <classes>
-            <class name="">
-            </class>
+            <class name="testcase.YDBAPP.login.TestLogin" />
+        </classes>
+    </test>
+
+    <test name="主页">
+        <classes>
+            <class name="testcase.YDBAPP.homepage.TestHomePage"/>
         </classes>
     </test>
 

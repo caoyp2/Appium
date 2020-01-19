@@ -2,12 +2,17 @@ package page;
 
 import common.Location;
 import io.appium.java_client.AppiumDriver;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import driver.APPDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.io.IOException;
 
 public class BasePage {
 
@@ -19,6 +24,9 @@ public class BasePage {
 
     public WebElement find(String type,String value){
         return appiumDriver.findElement(type,value);
+    }
+    public WebElement find(By by){
+        return appiumDriver.findElement(by);
     }
 
     public WebElement findByText(String text){
@@ -50,4 +58,16 @@ public class BasePage {
         return webElement;
     }
 
+    //截图
+    public String ScreenShot(String picname){
+        File screen = appiumDriver.getScreenshotAs(OutputType.FILE);
+        String dir = System.getProperty("user.dir") + "\\pic";
+        String picdir = dir + "\\" + picname + ".jpg";
+        try {
+            FileUtils.copyFile(screen,new File(picdir));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return picdir;
+    }
 }
