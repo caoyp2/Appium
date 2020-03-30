@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" thread-count="2" parallel="tests">
+    <test name="192.168.43.100">
+        <parameter name="uuid" value="127.0.0.1"/>
+        <parameter name="port" value="5001"/>
+        <classes>
+            <class name="testcase.YDBAPP.login.TestLogin"/>
+        </classes>
+    </test>
+    <test name="127.0.0.2">
+        <parameter name="uuid" value="127.0.0.2"/>
+        <parameter name="port" value="5002"/>
+        <classes>
+            <class name="testcase.YDBAPP.login.TestLogin"/>
+        </classes>
+    </test>
+</suite>

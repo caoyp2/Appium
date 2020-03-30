@@ -61,6 +61,7 @@ public class BasePage {
     //截图
     public String ScreenShot(String picname){
         File screen = appiumDriver.getScreenshotAs(OutputType.FILE);
+        //这里路径需要判断系统是windows还是linux
         String dir = System.getProperty("user.dir") + "\\pic";
         String picdir = dir + "\\" + picname + ".jpg";
         try {
